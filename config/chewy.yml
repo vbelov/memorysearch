@@ -1,0 +1,10 @@
+development:
+  user: elastic
+  password: changeme
+  host: '0.0.0.0:9200'
+  prefix: "ime"
+test:
+  user: elastic
+  password: changeme
+  host: '0.0.0.0:9200'
+  prefix: "ime"
