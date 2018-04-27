@@ -29,17 +29,19 @@ module Elasticsearch
         def exists(arguments={})
           raise ArgumentError, "Required argument 'index' missing" unless arguments[:index]
 
-          # valid_params = [
-          #   :ignore_indices,
-          #   :ignore_unavailable,
-          #   :allow_no_indices,
-          #   :expand_wildcards,
-          #   :local
-          # ]
+          ignored_params = [
+            :ignore_indices,
+            :ignore_unavailable,
+            :allow_no_indices,
+            :expand_wildcards,
+            :local
+          ]
+          check_ignored_params(ignored_params, arguments)
 
-          index_name = arguments[:index]
-          index = storage.find_index(name: index_name)
-          !!index
+          index_names = Array.wrap(arguments[:index])
+          index_names.all? do |name_pattern|
+            storage.find_indices(name_pattern).any?
+          end
         end
 
         alias_method :exists?, :exists

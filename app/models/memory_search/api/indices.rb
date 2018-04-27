@@ -13,7 +13,7 @@ module MemorySearch
                 ::Elasticsearch::API::Indices::Actions
         include ::MemorySearch::API::Indices::Actions
 
-        delegate :storage, to: :client
+        delegate :storage, :check_ignored_params, to: :client
       end
 
       # Proxy method for {IndicesClient}, available in the receiving object

@@ -85,6 +85,8 @@ GEM
       multi_json
     equalizer (0.0.11)
     erubi (1.7.1)
+    faker (1.8.7)
+      i18n (>= 0.7)
     faraday (0.15.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.23)
@@ -255,6 +257,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   chewy
+  faker
   guard-rspec
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)

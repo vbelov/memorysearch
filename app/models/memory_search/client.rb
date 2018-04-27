@@ -21,5 +21,15 @@ module MemorySearch
         Thread.current[:chewy_client] = MemorySearch::Client.new
       end
     end
+
+    def check_ignored_params(ignored_params, method_arguments)
+      used_params = ignored_params.select {|param| method_arguments.key?(param)}
+      if used_params.any?
+        Rails.logger.error(
+            "Following method params are not supported by MemorySearch and will be ignored:"\
+            " #{used_params.map(&:to_s).join(', ')}"
+        )
+      end
+    end
   end
 end
