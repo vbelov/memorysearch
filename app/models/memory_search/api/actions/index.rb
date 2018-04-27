@@ -102,7 +102,7 @@ module MemorySearch
 
         index_name = arguments[:index]
         type_name = arguments[:type]
-        document_id = arguments[:id]
+        document_id = arguments[:id].to_s
         body = arguments[:body]
 
         index = storage.find_or_create_index(name: index_name)

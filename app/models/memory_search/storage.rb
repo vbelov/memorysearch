@@ -6,6 +6,10 @@ module MemorySearch
       @indices = {}
     end
 
+    def find_index(name:)
+      @indices[name]
+    end
+
     def find_or_create_index(name:)
       @indices[name] ||= Index.new(name: name)
     end
