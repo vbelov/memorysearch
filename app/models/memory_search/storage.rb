@@ -21,5 +21,10 @@ module MemorySearch
     def find_or_create_index(name:)
       @indices[name] ||= Index.new(name: name)
     end
+
+    def search(index_name_pattern, body)
+      indices = find_indices(index_name_pattern)
+      Search.aaa(indices, body)
+    end
   end
 end

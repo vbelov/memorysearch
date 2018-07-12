@@ -95,6 +95,6 @@ RSpec.configure do |config|
 =end
 
   config.before(:each) do
-    MemorySearch::Client.use
+    # MemorySearch::Client.use
   end
 end
