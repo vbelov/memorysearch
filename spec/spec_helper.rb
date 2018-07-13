@@ -97,4 +97,9 @@ RSpec.configure do |config|
   config.before(:each) do
     # MemorySearch::Client.use
   end
+
+  config.around(:each) do |example|
+    Chewy.massacre
+    example.run
+  end
 end

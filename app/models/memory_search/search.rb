@@ -41,10 +41,9 @@ module MemorySearch
     end
 
     def documents
-      term = body[:query][:term]
-      field, value = term.first
       index.documents.select do |doc|
-        doc.source[field.to_s] == value
+        query = body[:query]
+        Search::DocumentMask.new(doc).matches?(query)
       end
     end
   end
